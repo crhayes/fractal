@@ -127,6 +127,16 @@ class Scope
     }
 
     /**
+     * Getter for manager.
+     *
+     * @return \League\Fractal\Resource\ResourceAbstract
+     */
+    public function getResource()
+    {
+        return $this->resource;
+    }
+
+    /**
      * Is Requested.
      *
      * Check if - in relation to the current scope - this specific segment is allowed.

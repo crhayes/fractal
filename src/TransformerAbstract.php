@@ -146,8 +146,9 @@ abstract class TransformerAbstract
     ) {
         if ($resource = $this->callIncludeMethod($scope, $include, $data)) {
             $childScope = $scope->embedChildScope($include, $resource);
+            $resourceKey = $childScope->getResource()->getResourceKey();
 
-            $includedData[$include] = $childScope->toArray();
+            $includedData[$resourceKey ?: $include] = $childScope->toArray();
         }
 
         return $includedData;
