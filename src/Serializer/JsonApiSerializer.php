@@ -26,6 +26,10 @@ class JsonApiSerializer extends ArraySerializer
      */
     public function collection($resourceKey, array $data, $scopeIdentifier)
     {
+        if (!$resourceKey) {
+            $resourceKey = $scopeIdentifier;
+        }
+
         return array($resourceKey ?: 'data' => $data);
     }
 
@@ -40,6 +44,10 @@ class JsonApiSerializer extends ArraySerializer
      */
     public function item($resourceKey, array $data, $scopeIdentifier)
     {
+        if (!$resourceKey) {
+            $resourceKey = $scopeIdentifier;
+        }
+
         return array($resourceKey ?: 'data' => array($data));
     }
 
